@@ -15,13 +15,20 @@ import math
 
 
 def getBillionUsersDay(growthRates):
+    day_counter = 0
+    target_number_of_users = 1000000000
+    current_sum_of_users = 0
 
+    while current_sum_of_users < target_number_of_users:
+        day_counter += 1
+        current_sum_of_users = 0
+        for g in growthRates:
+            current_sum_of_users += math.pow(g,day_counter)
+        if current_sum_of_users >= target_number_of_users:
+            print(day_counter)
+            break
+    return day_counter
 
-# Write your code here
-
-
-# These are the tests we use to determine if the solution is correct.
-# You can add your own at the bottom, but they are otherwise not editable!
 
 def printInteger(n):
     print('[', n, ']', sep='', end='')
